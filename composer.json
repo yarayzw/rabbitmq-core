@@ -1,0 +1,23 @@
+{
+  "name": "yarayzw/rabbitmq-core",
+  "description": "rabbitmq",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "yarayzw",
+      "email": "314850412@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "php-amqplib/php-amqplib": "^2.9",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "hq\\mq\\": "src"
+    },
+    "files": [
+    ]
+  }
+}
