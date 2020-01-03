@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jiang
- * Date: 2019/4/9
- * Time: 22:23
- */
+
 
 namespace hq\mq;
 
