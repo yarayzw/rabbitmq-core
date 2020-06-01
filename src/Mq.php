@@ -133,6 +133,8 @@ class Mq
             $this->channel->exchange_declare($route->getExchange(), $exchangeType, $passive, $durable, $autoDelete);
             [$qName, ,] = $this->channel->queue_declare($route->getQueue(), $passive, $durable, $exclusive, $autoDelete);
             $this->channel->queue_bind($qName, $route->getExchange(), $route->getRoute());
+            //设置响应数
+            $this->channel->basic_qos(null, 1, null);
             $this->channel->basic_consume($qName, $consumerTag, $noLocal, $noAck, $exclusive, $nowait, $callback);
         }
 
@@ -141,8 +143,7 @@ class Mq
             $this->receiveDelayMessage($delayCallback);
         }
 
-        //设置响应数
-        $this->channel->basic_qos(null, 1, null);
+
 
         while (count($this->channel->callbacks)) {
             $this->channel->wait();
