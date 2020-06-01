@@ -141,6 +141,9 @@ class Mq
             $this->receiveDelayMessage($delayCallback);
         }
 
+        //设置响应数
+        $this->channel->basic_qos(null, 1, null);
+
         while (count($this->channel->callbacks)) {
             $this->channel->wait();
         }
