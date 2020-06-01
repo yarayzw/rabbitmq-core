@@ -134,7 +134,7 @@ class Mq
             [$qName, ,] = $this->channel->queue_declare($route->getQueue(), $passive, $durable, $exclusive, $autoDelete);
             $this->channel->queue_bind($qName, $route->getExchange(), $route->getRoute());
             //设置响应数
-            $this->channel->basic_qos(null, 1, null);
+            $this->channel->basic_qos(null, 4, null);
             $this->channel->basic_consume($qName, $consumerTag, $noLocal, $noAck, $exclusive, $nowait, $callback);
         }
 
